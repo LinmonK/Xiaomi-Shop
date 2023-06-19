@@ -1,0 +1,518 @@
+
+.topnav-wrapper{
+    width:100%;
+    line-height:40px;
+    background-color: #333;
+}
+.topnav{
+    height:100%;
+    
+    margin: 0 auto;
+}
+.topnav-left{
+    float:left;
+}
+
+
+
+
+
+.topnav-middle,.topnav-right{
+    height: 100%;
+    float:right;
+}
+
+/* 正是因为app-wrapper的父元素浮动了，所以li他的宽度不再是父元素的全部而是被内容撑开。
+app-wrapper默认是父元素的全部，也会随着自身变大，父元素变大 */
+.topnav li{
+    float:left;
+   
+}
+
+.line{
+    color: #424242;
+    margin:0px 8px;
+}
+
+.topnav-right{
+    
+    position: relative;
+    width: 120px;
+    height: 40px;
+    margin-left:20px;
+}
+.topnav-right .shopping-wrapper{  
+    background-color: rgb(66,66,66);
+    width: 120px;
+    text-align: center;
+    height: 40px;
+    position: absolute;
+    z-index: 2000;
+
+}
+.topnav-right:hover a{
+    color: orange;
+    background-color: #fff;
+}
+.topnav-right .drown-cart{
+    width:314px;
+    height:0px;
+    background-color: #fff;
+    box-shadow: 0 0px 10px rgba(0, 0, 0, .3);
+    overflow: hidden;
+    position: absolute;
+    left: -194px;
+    top: 40px;
+    z-index: 1500;
+    transition: height 0.3s;
+    text-align: center;
+    line-height: 100px;
+}
+
+.topnav-right:hover .drown-cart{
+    height: 100px;
+}
+.drown-cart span{
+    font-size: 10px;
+    
+}
+
+
+
+/* 这里的选择器是元素选择器和类选择器相加 优先级是110，比单纯的.app-wrapper类选择器大10 */
+.topnav a{
+    display:block;
+    height:100%;
+}
+.topnav a:not(.shopping-wrapper):hover{
+    color: #fff;
+}
+
+.app-wrapper{
+    position: relative;
+}
+.app-wrapper .qrcode{
+    width: 124px;
+    height: 0px;
+    overflow: hidden;
+    background-color: #fff;
+    line-height: 1;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+    position: absolute;
+    left:-30px;
+    transition: height 0.3s;
+    z-index: 2000;
+    /* display: none; */
+    
+}
+.qrcode img{
+    height:90px;
+    margin:17px;
+    margin-bottom: 10px;
+}
+.qrcode span{
+    color: rgb(51, 51, 51);
+    font-size: 14px;
+    
+
+}
+.topnav a:hover .qrcode{
+    height: 148px;
+    
+    color: rgb(51, 51, 51);
+    /* transition-delay: 1s; */
+}
+.topnav .app-wrapper:hover::after{
+    display: block;
+}
+.app-wrapper::after{
+    content: '';
+    display:none;
+    border: 7px solid;
+    border-top: none;
+    border-color: transparent transparent #fff transparent;
+    width: 0px;
+    position: absolute;
+    left:20px;
+    top:33px;
+}
+
+.toptitle-wrapper{
+    position: relative;
+}
+
+.toptitle{
+    height: 100px;
+    /* background-color: #bfa; */
+    margin: 0 auto;
+    position: relative;
+}
+
+.logo-wrapper{
+    background-color: #ff6a00;
+    border-radius: 20px;
+    width: 55px;
+    height: 55px;
+    margin-top: 22.5px;
+    /* 因为元素浮动了，所以这里设置margin-top不会有外边距重叠的问题 */
+    float:left;
+    position: relative;
+    overflow: hidden;
+}
+.logo-wrapper a{
+    display: block;
+    width: 55px;
+    height: 55px;
+    background-image: url(../picture/mi-logo.png);
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    transition: left 0.1s;
+    /* background-size: contain; 如果使用contain，意思是完整显示图片，
+    由于图片比我们的背景还要小，所以和cover效果一样等比例放大图片铺满整个元素 */
+
+    
+}
+
+.logo-wrapper .home{
+    left: -55px;
+    background-image: url(../picture/mi-home.png);
+}
+.logo-wrapper:hover .logo{
+    left:55px;
+}
+.logo-wrapper:hover .home{
+    left:0px;
+}
+
+
+.nav-wrapper{
+    float:left;
+}
+
+.nav{
+    width: 850px;
+    /* background-color: aquamarine; */
+    margin-top: 10px;
+    /* line-height: 100px; */
+    
+    margin-left:7px;
+}
+.nav-wrapper li{
+    float:left;
+}
+/* 为什么现在的li默认就是100px的高度
+因为li被内容a所撑开，a本身小，但是对a作用的line-height
+把li给撑开了 */
+.nav a{
+    display: block;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+    padding: 28px 10px 38px;
+}
+/*这里不可以给a设置伪类选择器，因为这里的每个a都是其父元素的第一个元素
+而li只有一个是nav的第一个，first-child是第一个元素 first-of-type是第一个某类元素*/
+.nav li:first-child a{
+    padding-left: 58px;
+    visibility: hidden;
+}
+
+.left-nav{
+    width: 234px;
+    height: 460px;
+    background-color: rgba(0, 0, 0, .6);
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 500;
+    left:0;
+    padding:20px 0px;
+}
+.left-nav div{
+    line-height: 42px;
+}
+.left-nav div span{
+    display: block;
+    padding: 0px 25px 0px 30px;
+    color: white;
+}
+.left-nav span i{
+    float: right;
+    line-height: 42px;
+}
+.left-nav div span:hover{
+    background-color: #ff6a00;
+}
+
+
+
+
+
+.nav a:hover{
+    color: #ff6a00;
+}
+
+
+.drown-goods{
+    width: 100%;
+    position: absolute;
+    height: 0px;
+    overflow:hidden;
+    background-color: #fff;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, .1);
+    
+    top: 100px;
+    left: 0px;
+    transition: height 0.3s;
+    z-index: 999;
+}
+
+.nav li:nth-child(n+2):nth-child(-n+8):hover~.drown-goods{
+    border-top: 1px solid rgb(224,224,224);
+    height: 230px;
+}
+
+.drown-goods:hover{
+    border-top: 1px solid rgb(224,224,224);
+    height: 230px;
+}
+.search-wrapper{
+    width: 296px;
+    height: 50px;
+    /* background-color: #ff6a00; */
+    float: right;
+    margin-top: 25px;
+    border:none;
+}
+/* 什么样式都不设置的话， 这里的button和文本框之间有个空格块
+类似图片或者文字的性质，行内块元素，换行相当于一个空格，这里我们采用浮动的方式
+让他们变成块元素 */
+
+.search_inp,.search_btn{
+    float:left;
+}
+.search_inp{
+    width: 244px;
+    height: 50px;
+    box-sizing: border-box;
+    border:1px solid rgb(224,224,224);
+    padding: 0px 10px;
+    border-radius: 0;
+    font:14px/1.5 Helvetica Neue,Helvetica,Arial,Microsoft Yahei,Hiragino Sans GB,Heiti SC,WenQuanYi Micro Hei,sans-serif;
+    outline: none;
+    
+}
+.search_btn{
+    width: 52px;
+    height: 50px;
+    border:1px solid rgb(224,224,224);
+    border-left: none;
+}
+.search-wrapper .search_inp:focus{
+    border:1px solid #ff6a00;
+}
+.search_inp:focus+.search_btn{
+    border: 1px solid #ff6a00;
+    border-left: none;
+
+}
+.search_btn:hover{
+    color: white;
+    background-color: #ff6a00;
+}
+.search_btn i{
+    font-size: 16px;
+}
+
+.bottomRight-nav{
+    width: 26px;
+    height: 200px;
+    background-color: white;
+    border: 1px solid rgb(245,245,245);
+    position: fixed;
+    bottom: 41px;
+    right:0;  
+    /* margin-right: -639px;
+    right: 50%; */
+    /* margin-right: 639px; */
+    
+    /* 根据left+margin-left+width+margin-right+right=视口宽度
+        auto+0+26+0+50% = 视口宽度 不能修改margin-left和left
+        因为修改的话，也达不到相应的效果。
+        但是为了实现靠边的效果，只能修改margin-right因为margin-right是挤别人，
+        而margin-left是挤自己。因此可以给他设置负值，使我们的left变大，
+        但是又有个小bug，当我们页面缩小之后，右下角这个又看不见了。我的建议
+        是之后学习了js再做。
+    */
+}
+.bottomRight-nav li{
+    height: 40px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor:default;
+    line-height: 40px;
+    /* vertical-align: middle; */
+    color: rgb(117, 117, 117);
+    border-bottom: 1px rgb(245,245,245) solid;
+
+}
+.bottomRight-nav li:last-child{
+    border-bottom: none;
+}
+.bottomRight-nav li:hover,
+.bottomRight-nav a:hover{
+   
+    color: #ff6a00;
+}
+
+.bottomRight-nav a{
+    cursor:default;
+    display: block;
+    height: 100%;
+}
+
+.banner{
+    position: relative;
+    height: 460px;
+}
+
+.banner .img-list{
+    
+    position: absolute;
+
+}
+.banner .img-list img{
+    width: 100%;
+}
+
+.dot-wrapper{
+    /* background-color: #ff6a00; */
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+}
+.dot-wrapper a{
+    float: left;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, .3);
+    border: 1px solid rgba(255,255,255,.4);
+    margin-left: 6px;
+}
+.dot-wrapper .active,
+.dot-wrapper a:hover{
+    background-color: rgba(255,255,255,.4);
+    border: 1px solid rgba(0, 0, 0, .3);
+}
+
+.prev-next a{
+    position: absolute;
+    width: 41px;
+    background-image: url(../picture/icon-slides.png);
+    height: 69px;
+    /* background-color: ; */
+    top: 0;
+    bottom: 0;
+    margin: auto 0; 
+   
+}
+.banner .prev{
+    background-position: -84px 0;
+    left: 234px;
+}
+.banner .next{
+    /* 这里需要注意是负数 */
+    background-position: -125px 0;
+    right: 0;
+}
+.banner .prev:hover{
+    background-position: 0 0;
+}
+.banner .next:hover{
+    background-position: -42px 0;
+}
+
+.ad{
+    height: 170px;
+    margin-top: 14px;
+}
+.SixFunction{
+    width: 234px;
+    height: 170px;
+    background-color: #5f5750;
+    float: left;
+    margin-right:14px;
+    box-sizing: border-box;
+    padding: 1px 3px;
+    
+}
+.SixFunction li{
+    width: 76px;
+    float:left;
+    position: relative;
+    text-align: center;
+}
+.SixFunction li::before{
+    content: '';
+    position: absolute;
+    width: 64px;
+    height: 1px;
+    background-color: rgb(102,94,87);
+    top: 2px;
+    left: 0;
+    right: 0;
+    margin:0 auto;
+}
+.SixFunction li::after{
+    content: '';
+    position: absolute;
+    width: 1px;
+    height: 72px;
+    background-color: rgb(102,94,87);
+    top: 0px;
+    left: 0;
+    bottom: 0px;
+    margin:auto 0;
+}
+.SixFunction a{
+    height: 84px;
+    display: block;
+    overflow:hidden;
+    color: #CFCCCA;
+    box-sizing: border-box;
+    transition: color 0.1s;
+}
+.SixFunction a:hover{
+    color: white;
+}
+.SixFunction i{
+    display: block;
+    font-size: 24px;
+    /* 这边写下margin-top会发生外边距重叠的问题，怎么解决外边距重叠
+    就要想要clearfix以及bfc，bfc的特点就是可以解决外边距重叠问题
+    那就轮到了该怎么开启BFC */
+    margin-top: 15px;
+}
+
+
+
+
+.ad-imgs{
+    float: left;
+}
+.ad-imgs li{
+    float:left;
+    margin-right:15px;
+}
+.ad-imgs li:last-child{
+    margin:0px;
+}
+.ad-imgs li:hover{
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+}
+.ad-imgs li img{
+    height: 170px;
+    vertical-align: top;
+}
